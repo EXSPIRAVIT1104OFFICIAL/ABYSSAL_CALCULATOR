@@ -1,9 +1,12 @@
-[gd_resource type="Theme" load_steps=3 format=2]
+[gd_resource type="Theme" load_steps=6 format=2]
 
-[ext_resource path="res://FONTS/Exo2-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://FONTS/OLDENGL.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://SYSTEMS/GRABBER.tres" type="StyleBox" id=2]
+[ext_resource path="res://SYSTEMS/SCROLL.tres" type="StyleBox" id=3]
+[ext_resource path="res://SYSTEMS/GRABBER_HIGHLIGHT.tres" type="StyleBox" id=4]
 
 [sub_resource type="DynamicFont" id=1]
-size = 40
+size = 56
 font_data = ExtResource( 1 )
 
 [resource]
@@ -400,11 +403,11 @@ VScrollBar/icons/decrement = null
 VScrollBar/icons/decrement_highlight = null
 VScrollBar/icons/increment = null
 VScrollBar/icons/increment_highlight = null
-VScrollBar/styles/grabber = null
-VScrollBar/styles/grabber_highlight = null
-VScrollBar/styles/grabber_pressed = null
-VScrollBar/styles/scroll = null
-VScrollBar/styles/scroll_focus = null
+VScrollBar/styles/grabber = ExtResource( 2 )
+VScrollBar/styles/grabber_highlight = ExtResource( 4 )
+VScrollBar/styles/grabber_pressed = ExtResource( 4 )
+VScrollBar/styles/scroll = ExtResource( 3 )
+VScrollBar/styles/scroll_focus = ExtResource( 3 )
 VSeparator/constants/separation = 8
 VSeparator/styles/separator = null
 VSlider/icons/grabber = null

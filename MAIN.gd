@@ -1,13 +1,12 @@
 extends Node
 
-onready var RESULT = $RESULT
+onready var RESULT = $V_BOX/RESULT
 onready var OUT_LINE_SHADER = preload("res://SYSTEMS/OUTLINE.tres")
 var NODE
 var NAME
 var CONTENT
 
 func _ready():
-	RESULT.readonly = false
 	RESULT.text = ""
 	_SYNC_CONTENT()
 	for BUTTONS in get_node("BUTTONS").get_children():
@@ -43,10 +42,8 @@ func _button_pressed(PATH):
 	elif NAME == "%":
 		_TYPE_IN("*0.01")
 	elif RESULT.text == "ERROR :/":
-		RESULT.readonly = true
 		for BUTTONS in get_node("BUTTONS").get_children():
 			if BUTTONS.pressed == true:
-				RESULT.readonly = false
 				RESULT.text = ""
 				_SYNC_CONTENT()
 				_TYPE_IN(NAME)

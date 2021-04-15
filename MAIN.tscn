@@ -151,15 +151,15 @@ shortcut = SubResource( 35 )
 
 [node name="MAIN" type="Control"]
 use_parent_material = true
-anchor_left = -1.0
-anchor_top = -1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -96.0
-margin_bottom = -288.0
+margin_left = -256.0
+margin_top = -448.0
+margin_right = -256.0
+margin_bottom = -448.0
 rect_min_size = Vector2( 256, 448 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 0
+size_flags_vertical = 0
 theme = ExtResource( 21 )
 script = ExtResource( 20 )
 __meta__ = {
@@ -168,9 +168,8 @@ __meta__ = {
 
 [node name="BG" type="NinePatchRect" parent="."]
 use_parent_material = true
-margin_top = 96.0
 margin_right = 256.0
-margin_bottom = 544.0
+margin_bottom = 168.0
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 22 )
 patch_margin_left = 24
@@ -181,36 +180,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RESULT" type="TextEdit" parent="."]
+[node name="V_BOX" type="VBoxContainer" parent="."]
+margin_left = 40.0
+margin_top = 12.0
+margin_right = 468.0
+margin_bottom = 308.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RESULT" type="TextEdit" parent="V_BOX"]
 use_parent_material = true
-anchor_left = 0.064
-anchor_top = 0.153
-anchor_right = 0.922
-anchor_bottom = 0.574
-margin_left = 3.232
-margin_top = 0.287994
-margin_right = 3.93597
-margin_bottom = -0.0960083
-rect_min_size = Vector2( 432, 296 )
+margin_right = 428.0
+margin_bottom = 296.0
+rect_min_size = Vector2( 428, 296 )
 mouse_default_cursor_shape = 3
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_colors/member_variable_color = Color( 0.866667, 0.890196, 0.890196, 1 )
-custom_colors/function_color = Color( 0.0470588, 0.615686, 0.580392, 1 )
-custom_colors/symbol_color = Color( 0.129412, 0.913725, 0.756863, 1 )
+custom_colors/function_color = Color( 0.129412, 0.913725, 0.756863, 1 )
+custom_colors/symbol_color = Color( 0.0705882, 0.796078, 0.686275, 1 )
 custom_colors/caret_background_color = Color( 0.129412, 0.913725, 0.756863, 0.392157 )
 custom_colors/selection_color = Color( 0.0823529, 0.196078, 0.258824, 1 )
 custom_colors/caret_color = Color( 0.866667, 0.890196, 0.890196, 1 )
-custom_colors/font_color_selected = Color( 0.129412, 0.913725, 0.756863, 1 )
-custom_colors/font_color = Color( 0.0470588, 0.615686, 0.580392, 1 )
+custom_colors/font_color = Color( 0.129412, 0.913725, 0.756863, 1 )
 custom_colors/background_color = Color( 0.0705882, 0.298039, 0.364706, 1 )
 custom_colors/number_color = Color( 0.866667, 0.890196, 0.890196, 1 )
 custom_colors/completion_background_color = Color( 0.0627451, 0.12549, 0.188235, 0.392157 )
 custom_colors/current_line_color = Color( 0.054902, 0.439216, 0.47451, 1 )
-custom_colors/mark_color = Color( 0.0470588, 0.615686, 0.580392, 1 )
-custom_colors/word_highlighted_color = Color( 0.866667, 0.890196, 0.890196, 1 )
+custom_colors/mark_color = Color( 0.866667, 0.890196, 0.890196, 1 )
 custom_colors/font_color_readonly = Color( 0.129412, 0.913725, 0.756863, 1 )
-custom_constants/line_spacing = 2
+custom_constants/line_spacing = 0
+text = "ABYSSAL
+ _
+CALCULATOR
+
+Version(1.0)
+"
 readonly = true
 highlight_current_line = true
 syntax_highlighting = true
@@ -227,9 +233,8 @@ __meta__ = {
 
 [node name="DISPLAY_BG" type="NinePatchRect" parent="."]
 use_parent_material = true
-margin_top = 96.0
 margin_right = 256.0
-margin_bottom = 264.0
+margin_bottom = 168.0
 rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 24 )
 draw_center = false
@@ -238,7 +243,6 @@ patch_margin_top = 16
 patch_margin_right = 24
 patch_margin_bottom = 32
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -247,12 +251,14 @@ use_parent_material = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -288.0
-margin_right = -256.0
+margin_top = -576.0
+margin_right = -512.0
+margin_bottom = -288.0
 rect_scale = Vector2( 2, 2 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -624,9 +630,9 @@ text = "="
 position = Vector2( 0, 96 )
 
 [node name="CAMERA" type="Camera2D" parent="."]
-position = Vector2( 256, 544 )
+position = Vector2( 256, 440 )
 current = true
-zoom = Vector2( 2.1, 2.15 )
+zoom = Vector2( 1.2, 1.1 )
 process_mode = 0
 limit_smoothed = true
 drag_margin_h_enabled = true
@@ -638,6 +644,3 @@ editor_draw_drag_margin = true
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="CanvasLayer" type="Node2D" parent="."]
-[connection signal="text_changed" from="RESULT" to="." method="_on_RESULT_text_changed"]
