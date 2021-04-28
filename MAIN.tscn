@@ -157,7 +157,7 @@ margin_left = -256.0
 margin_top = -448.0
 margin_right = -256.0
 margin_bottom = -448.0
-rect_min_size = Vector2( 256, 448 )
+rect_min_size = Vector2( 512, 896 )
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 21 )
@@ -168,9 +168,8 @@ __meta__ = {
 
 [node name="BG" type="NinePatchRect" parent="."]
 use_parent_material = true
-margin_right = 256.0
-margin_bottom = 168.0
-rect_scale = Vector2( 2, 2 )
+margin_right = 512.0
+margin_bottom = 896.0
 texture = ExtResource( 22 )
 patch_margin_left = 24
 patch_margin_top = 16
@@ -182,9 +181,10 @@ __meta__ = {
 
 [node name="V_BOX" type="VBoxContainer" parent="."]
 margin_left = 40.0
-margin_top = 12.0
+margin_top = 16.0
 margin_right = 468.0
-margin_bottom = 308.0
+margin_bottom = 304.0
+rect_min_size = Vector2( 428, 288 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -192,8 +192,8 @@ __meta__ = {
 [node name="RESULT" type="TextEdit" parent="V_BOX"]
 use_parent_material = true
 margin_right = 428.0
-margin_bottom = 296.0
-rect_min_size = Vector2( 428, 296 )
+margin_bottom = 288.0
+rect_min_size = Vector2( 428, 288 )
 mouse_default_cursor_shape = 3
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -211,11 +211,12 @@ custom_colors/current_line_color = Color( 0.054902, 0.439216, 0.47451, 1 )
 custom_colors/mark_color = Color( 0.866667, 0.890196, 0.890196, 1 )
 custom_colors/font_color_readonly = Color( 0.129412, 0.913725, 0.756863, 1 )
 custom_constants/line_spacing = 0
-text = "ABYSSAL
- _
-CALCULATOR
+text = "
 
-Version(1.0)
+:)
+
+
+
 "
 readonly = true
 highlight_current_line = true
@@ -248,12 +249,10 @@ __meta__ = {
 
 [node name="BUTTONS" type="Control" parent="."]
 use_parent_material = true
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -576.0
-margin_right = -512.0
-margin_bottom = -288.0
+margin_top = 320.0
+margin_right = 256.0
+margin_bottom = 608.0
+rect_min_size = Vector2( 256, 288 )
 rect_scale = Vector2( 2, 2 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -627,18 +626,18 @@ margin_bottom = -199.0
 text = "="
 
 [node name="HAND" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 96 )
+position = Vector2( 0, 4 )
 
 [node name="CAMERA" type="Camera2D" parent="."]
-position = Vector2( 256, 440 )
+position = Vector2( 256, 448 )
 current = true
-zoom = Vector2( 1.2, 1.1 )
+zoom = Vector2( 1.4, 1.4 )
 process_mode = 0
 limit_smoothed = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_enabled = true
-smoothing_speed = 8.0
+smoothing_speed = 4.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 __meta__ = {

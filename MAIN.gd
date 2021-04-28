@@ -10,10 +10,10 @@ func _ready():
 	RESULT.text = ""
 	_SYNC_CONTENT()
 	for BUTTONS in get_node("BUTTONS").get_children():
-		var PATH = BUTTONS.get_path()
 		BUTTONS.shortcut_in_tooltip = false
 		BUTTONS.toggle_mode = true
 		BUTTONS.use_parent_material = false
+		var PATH = BUTTONS.get_path()
 		var POS = get_node(PATH).rect_position
 		BUTTONS.connect("button_down", self, "_button_down", [PATH, POS])
 		BUTTONS.connect("button_up", self, "_button_up", [PATH, POS])
@@ -61,6 +61,8 @@ func _button_mouse_exited(PATH):
 func _calculation(input):
 	var SCRIPT = GDScript.new()
 	SCRIPT.set_source_code("tool\nfunc eval():\n\treturn(" + input + ")")
+	#change this to answer = ... not return ... which enables variable calculation#
+	#change all delete and equal functions, add ANSWER = ... and return sth at the end#
 	var ERROR = SCRIPT.reload()
 	if ERROR != OK:
 		return false
@@ -70,28 +72,17 @@ func _calculation(input):
 	return ANS
 
 func _TYPE_IN(ADD_ON):
-	var OLD_TEXT = RESULT.text
-	var NEW_TEXT = OLD_TEXT + NAME
-	RESULT.text = NEW_TEXT
-	var OLD_CONTENT = CONTENT
-	var NEW_CONTENT = OLD_CONTENT + ADD_ON
-	CONTENT = NEW_CONTENT
+	RESULT.text = RESULT.text + NAME
+	CONTENT = CONTENT + ADD_ON
 
 func _EQUALS():
-	var COMMAND = CONTENT
-	var ANS = _calculation(COMMAND)
+	var ANS = _calculation(CONTENT)
 	if typeof(ANS) == TYPE_BOOL:
 		RESULT.text = "ERROR :/"
 	else:
 		RESULT.text = str(ANS)
-	_PRINT_RESULT()
+	print(RESULT.text)
 	_SYNC_CONTENT()
 
 func _SYNC_CONTENT():
 	CONTENT = RESULT.text
-
-func _on_RESULT_text_changed():
-	_SYNC_CONTENT()
-
-func _PRINT_RESULT():
-	print(RESULT.text)
