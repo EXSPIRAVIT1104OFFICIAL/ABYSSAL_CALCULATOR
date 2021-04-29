@@ -35,7 +35,8 @@ func _button_pressed(PATH):
 	NODE = get_node(PATH)
 	NAME = NODE.get_node("LABEL").text
 	if NAME == "=":
-		_EQUALS()
+		if RESULT.text != "":
+			_EQUALS()
 	elif NAME == "C":
 		RESULT.text = ""
 		_SYNC_CONTENT()
@@ -61,8 +62,6 @@ func _button_mouse_exited(PATH):
 func _calculation(input):
 	var SCRIPT = GDScript.new()
 	SCRIPT.set_source_code("tool\nfunc eval():\n\treturn(" + input + ")")
-	#change this to answer = ... not return ... which enables variable calculation#
-	#change all delete and equal functions, add ANSWER = ... and return sth at the end#
 	var ERROR = SCRIPT.reload()
 	if ERROR != OK:
 		return false
@@ -74,6 +73,7 @@ func _calculation(input):
 func _TYPE_IN(ADD_ON):
 	RESULT.text = RESULT.text + NAME
 	CONTENT = CONTENT + ADD_ON
+	print(CONTENT)
 
 func _EQUALS():
 	var ANS = _calculation(CONTENT)
@@ -86,3 +86,6 @@ func _EQUALS():
 
 func _SYNC_CONTENT():
 	CONTENT = RESULT.text
+
+func _on_RESULT_text_changed():
+	_SYNC_CONTENT()

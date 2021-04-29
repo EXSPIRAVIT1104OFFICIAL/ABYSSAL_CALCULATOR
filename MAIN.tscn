@@ -218,7 +218,6 @@ text = "
 
 
 "
-readonly = true
 highlight_current_line = true
 syntax_highlighting = true
 context_menu_enabled = false
@@ -643,3 +642,4 @@ editor_draw_drag_margin = true
 __meta__ = {
 "_edit_group_": true
 }
+[connection signal="text_changed" from="V_BOX/RESULT" to="." method="_on_RESULT_text_changed"]
